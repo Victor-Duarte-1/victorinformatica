@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Victor Duarte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://i.ibb.co/b7yrH1f/profile.jpg" alt="Victor Duarte" class="profile-pic">
+            <div class="typing-container">
+                <h1 id="typing-text"></h1>
+                <span class="cursor">|</span>
+            </div>
+            <p>Assistente de Suporte Técnico TI</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://www.instagram.com/victord.informatica/?igsh=bTMxYzN3MTdqajU2" target="_blank" class="button-3d"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/victor-duarte-2273a4ab" target="_blank" class="button-3d"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="mailto:victorduarteti@hotmail.com" class="button-3d"><i class="fas fa-envelope"></i> Email</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="parallax"></div>
+    <button id="back-to-top" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script>
+        VANTA.BIRDS({
+            el: ".parallax",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: 0x1e1e1e,
+            color1: 0x00796b,
+            color2: 0xffeb3b,
+            birdSize: 1.50,
+            wingSpan: 20.00,
+            speedLimit: 4.00,
+            separation: 50.00,
+            alignment: 50.00,
+            cohesion: 50.00
+        });
+    </script>
+</body>
+</html>
