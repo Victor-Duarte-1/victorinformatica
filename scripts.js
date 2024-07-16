@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const typingText = document.getElementById('typing-text');
-    const textArray = ['Olá, eu sou Victor', 'Bem-vindo ao meu portfólio', 'Pronto para Ajudar!'];
+    const textArray = ['Olá, eu sou Victor', 'Bem-vindo ao meu portfólio'];
     let arrayIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
