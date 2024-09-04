@@ -10,6 +10,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         /* Estilos adicionais para o canvas */
         #particles {
@@ -40,13 +42,30 @@
         #back-to-top:hover {
             background-color: var(--secondary-color);
         }
+        .header-content {
+            text-align: center;
+            padding: 20px;
+        }
         .header-content h1 {
             color: #95928f;
             font-family: 'Gentle Calligraphy', cursive; /* Fonte para o nome */
+            font-size: 2em;
+            margin: 0;
         }
         .header-content p {
             color: #95928f;
             font-family: 'Roboto', sans-serif; /* Fonte para o texto adicional */
+            margin: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 10px;
         }
         .button-3d {
             font-family: 'Gentle Calligraphy', cursive; /* Fonte para os botões */
@@ -64,6 +83,39 @@
             background-color: #555;
             color: #fff;
             border-color: #555;
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.5em;
+            }
+            .header-content p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .button-3d {
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.2em;
+            }
+            .header-content p {
+                font-size: 0.9em;
+            }
+            .button-3d {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
