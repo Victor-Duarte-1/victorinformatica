@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gentle+Calligraphy&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos CSS adicionais podem ser colocados aqui */
-    </style>
 </head>
 <body>
     <header>
@@ -29,31 +26,127 @@
             </ul>
         </nav>
     </header>
-    <div class="parallax"></div>
+    <canvas id="particles"></canvas>
     <button id="back-to-top" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-    <script src="scripts.js"></script>
     <script>
-        VANTA.BIRDS({
-            el: ".parallax",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            backgroundColor: 0x1e1e1e,
-            color1: 0x00796b,
-            color2: 0xffeb3b,
-            birdSize: 1.50,
-            wingSpan: 20.00,
-            speedLimit: 4.00,
-            separation: 50.00,
-            alignment: 50.00,
-            cohesion: 50.00
+        // Configuração do Three.js
+        const canvas = document.getElementById('particles');
+        const renderer = new THREE.WebGLRenderer({ canvas });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.z = 50;
+
+        // Criar estrelas
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        for (let i = 0; i < 20000; i++) { // Aumentar a densidade das partículas
+            const x = Math.random() * 2000 - 1000;
+            const y = Math.random() * 2000 - 1000;
+            const z = Math.random() * 2000 - 1000;
+            vertices.push(x, y, z);
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+        const material = new THREE.PointsMaterial({ color: 0xffffff, size: 1 });
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        // Criar planetas
+        const planetGeometry = new THREE.SphereGeometry(10, 32, 32);
+        const planetMaterial = new THREE.MeshBasicMaterial({ color: 0x0077ff }); // Azul
+        const planets = [];
+        const numPlanets = 5; // Número de planetas
+
+        for (let i = 0; i < numPlanets; i++) {
+            const planet = new THREE.Mesh(planetGeometry, planetMaterial);
+            planet.position.set(
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000
+            );
+            scene.add(planet);
+            planets.push(planet);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0002; // Reduzir a velocidade de rotação
+            particles.rotation.y += 0.0002; // Reduzir a velocidade de rotação
+            
+            // Rotação dos planetas
+            planets.forEach(planet => {
+                planet.rotation.y += 0.001;
+            });
+            
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('mousemove', (event) => {
+            const x = (event.clientX / window.innerWidth) * 2 - 1;
+            const y = -(event.clientY / window.innerHeight) * 2 + 1;
+            particles.rotation.x = y * Math.PI * 0.20; // Reduzir a rotação ao passar o mouse
+            particles.rotation.y = x * Math.PI * 0.20; // Reduzir a rotação ao passar o mouse
         });
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        // Script para mostrar o botão "Voltar ao topo"
+        window.addEventListener('scroll', () => {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Efeito de digitação
+        const typingText = document.getElementById('typing-text');
+        const text = 'Victor Duarte';
+        const typingSpeed = 100; // Velocidade de digitação em milissegundos
+        const erasingSpeed = 50; // Velocidade de apagamento em milissegundos
+        const delay = 2000; // Tempo de espera antes de começar a apagar
+
+        let index = 0;
+        let isTyping = true;
+
+        function type() {
+            if (isTyping) {
+                if (index < text.length) {
+                    typingText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    isTyping = false;
+                    setTimeout(type, delay); // Espera antes de começar a apagar
+                }
+            } else {
+                if (index > 0) {
+                    typingText.innerHTML = text.substring(0, index - 1);
+                    index--;
+                    setTimeout(type, erasingSpeed);
+                } else {
+                    isTyping = true;
+                    setTimeout(type, delay); // Espera antes de começar a digitar novamente
+                }
+            }
+        }
+
+        typingText.style.color = '#C4C4C4'; // Cor do texto
+        type();
     </script>
 </body>
 </html>
