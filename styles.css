@@ -61,7 +61,7 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Adiciona esta linha para garantir que os itens possam quebrar a linha em telas menores */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha se necessário */
 }
 
 nav ul li {
@@ -98,8 +98,8 @@ nav ul li {
         font-size: 1.2em;
     }
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Muda a direção para coluna em telas menores */
+        align-items: center; /* Alinha os itens ao centro */
     }
     nav ul li {
         margin: 10px 0;
