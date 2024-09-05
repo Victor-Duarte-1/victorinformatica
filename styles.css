@@ -55,16 +55,21 @@ body {
     margin: 10px 0;
 }
 
+nav {
+    text-align: center;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap; /* Permite que os botões se movam para a linha seguinte se não houver espaço suficiente */
+    justify-content: center; /* Centraliza os botões */
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 5px; /* Espaçamento entre os botões */
 }
 
 .button-3d {
@@ -96,11 +101,11 @@ nav ul li {
         font-size: 1.2em;
     }
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Coloca os botões em uma coluna em telas menores */
+        align-items: center; /* Centraliza os botões */
     }
     nav ul li {
-        margin: 10px 0;
+        margin: 10px 0; /* Espaçamento vertical para botões em coluna */
     }
     .button-3d {
         padding: 10px 20px;
