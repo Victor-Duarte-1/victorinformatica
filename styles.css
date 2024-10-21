@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Nova fonte */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background: linear-gradient(135deg, #3a3a3a, #1e1e1e); /* Gradiente de fundo */
 }
 
-/* Estilos adicionais para o canvas */
 #particles {
     position: fixed;
     top: 0;
@@ -13,6 +15,13 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+.profile-pic {
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+    width: 150px; /* Largura da imagem do perfil */
+    height: 150px; /* Altura da imagem do perfil */
+    margin-bottom: 20px; /* Espaço abaixo da imagem */
 }
 
 #back-to-top {
@@ -24,8 +33,8 @@ body {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #ffffff;
     cursor: pointer;
     padding: 15px;
     border-radius: 50%;
@@ -34,25 +43,28 @@ body {
 }
 
 #back-to-top:hover {
-    background-color: #555;
+    background-color: rgba(76, 175, 80, 0.9); /* Verde suave */
 }
 
 .header-content {
     text-align: center;
     padding: 20px;
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo esteja acima do fundo */
 }
 
 .header-content h1 {
-    color: #95928f;
-    font-family: 'Gentle Calligraphy', cursive;
-    font-size: 2em;
+    color: #b2ebf2; /* Azul claro para o texto */
+    font-size: 3em; /* Aumenta o tamanho da fonte */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
     margin: 0;
 }
 
 .header-content p {
-    color: #95928f;
-    font-family: 'Roboto', sans-serif;
+    color: #ffffff; /* Branco para o parágrafo */
+    font-size: 1.5em; /* Aumenta o tamanho da fonte do parágrafo */
     margin: 10px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
 }
 
 nav ul {
@@ -60,65 +72,43 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha se necessário */
+    flex-direction: column; /* Alinha os botões em coluna */
+    align-items: center; /* Centraliza os botões horizontalmente */
 }
 
 nav ul li {
-    margin: 10px;
+    margin: 10px 0; /* Espaço vertical entre os botões */
 }
 
-/* Estilize os botões */
 .button-3d {
-    font-family: 'Gentle Calligraphy', cursive;
+    font-family: 'Montserrat', sans-serif; /* Nova fonte para os botões */
     text-decoration: none;
-    color: #fff;
-    background-color: #333;
-    padding: 15px 30px; /* Aumenta o padding para tornar os botões maiores */
+    color: #ffffff; /* Branco para o texto dos botões */
+    background-color: #4c9daf; /* Verde claro */
+    padding: 15px 110px; /* Aumenta o padding para tornar os botões maiores e mais largos */
     border-radius: 5px;
-    border: 2px solid transparent;
-    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid transparent;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
     display: inline-block;
     text-align: center;
-    font-size: 1.5em; /* Aumenta o tamanho da fonte */
+    font-size: 1.2em; /* Tamanho da fonte */
 }
 
 .button-3d:hover {
-    background-color: #555;
+    background-color: #1a454f; /* Verde escuro */
     color: #fff;
-    border-color: #555;
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
 }
 
-/* Media Queries para responsividade */
-@media (max-width: 768px) {
-    .header-content h1 {
-        font-size: 2.5em;
-    }
-    .header-content p {
-        font-size: 1.2em;
-    }
-    nav ul {
-        flex-direction: column; /* Muda a direção para coluna em telas menores */
-        align-items: center; /* Alinha os itens ao centro */
-    }
-    nav ul li {
-        margin: 10px 0;
-    }
-    .button-3d {
-        padding: 12px 24px; /* Ajusta o padding para telas menores */
-        font-size: 1.3em; /* Ajusta o tamanho da fonte para telas menores */
-    }
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #0e2a30; /* Cor do cursor */
+    animation: blink 0.7s step-end infinite;
 }
 
-@media (max-width: 480px) {
-    .header-content h1 {
-        font-size: 2em;
-    }
-    .header-content p {
-        font-size: 1.1em;
-    }
-    .button-3d {
-        padding: 10px 20px; /* Ajusta o padding para telas ainda menores */
-        font-size: 1.2em; /* Ajusta o tamanho da fonte para telas ainda menores */
-    }
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
