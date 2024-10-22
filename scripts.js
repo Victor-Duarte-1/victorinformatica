@@ -1,24 +1,35 @@
-const typingText = document.getElementById("typing-text");
-const text = "Victor Duarte";
-let index = 0;
+const typingText = document.getElementById("support-text");
+const texts = [
+    "Suporte Técnico TI",
+    "Atendimento especializado",
+    "Solucionando problemas"
+]; // Array com as frases
+let currentTextIndex = 0; // Índice do texto atual
+let index = 0; // Índice da letra
+let isDeleting = false; // Controla se está deletando o texto
 
 function type() {
-    if (index < text.length) {
-        typingText.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(type, 150); // Tempo entre as letras
-    } else {
-        setTimeout(remove, 1000); // Espera 1 segundo antes de apagar
-    }
-}
+    const text = texts[currentTextIndex]; // Texto atual
 
-function remove() {
-    if (index > 0) {
-        typingText.innerHTML = text.substring(0, index - 1);
+    if (!isDeleting && index < text.length) {
+        // Digitando o texto
+        typingText.innerHTML = text.substring(0, index + 1) + '<span class="cursor"></span>';
+        index++;
+        setTimeout(type, 150); // Tempo entre digitar as letras
+    } else if (isDeleting && index > 0) {
+        // Deletando o texto
+        typingText.innerHTML = text.substring(0, index - 1) + '<span class="cursor"></span>';
         index--;
-        setTimeout(remove, 100); // Tempo entre a remoção das letras
-    } else {
-        setTimeout(type, 1500); // Espera 1.5 segundos antes de recomeçar
+        setTimeout(type, 100); // Tempo entre deletar as letras
+    } else if (!isDeleting && index === text.length) {
+        // Espera um pouco antes de começar a deletar
+        setTimeout(() => isDeleting = true, 1000);
+        setTimeout(type, 1000);
+    } else if (isDeleting && index === 0) {
+        // Texto deletado, passa para o próximo texto
+        isDeleting = false;
+        currentTextIndex = (currentTextIndex + 1) % texts.length; // Muda para o próximo texto
+        setTimeout(type, 500); // Pequena pausa antes de começar a digitar novamente
     }
 }
 
