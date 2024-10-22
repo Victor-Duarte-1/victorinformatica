@@ -54,9 +54,9 @@ body {
 }
 
 .header-content h1 {
-    color: #b2ebf2; /* Azul claro para o texto */
-    font-size: 3em; /* Aumenta o tamanho da fonte */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+    color: #fff; /* Branco */
+    font-size: 3.5em; /* Aumenta o tamanho da fonte */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra mais pronunciada */
     margin: 0;
 }
 
@@ -81,11 +81,11 @@ nav ul li {
 }
 
 .button-3d {
-    font-family: 'Montserrat', sans-serif; /* Nova fonte para os botões */
+    font-family: 'Raleway', sans-serif; /* Nova fonte para os botões */
     text-decoration: none;
     color: #ffffff; /* Branco para o texto dos botões */
     background-color: #4c9daf; /* Verde claro */
-    padding: 15px 110px; /* Aumenta o padding para tornar os botões maiores e mais largos */
+    padding: 15px 120px; /* Aumenta o padding para tornar os botões maiores e mais largos */
     border-radius: 5px;
     border: 1px solid transparent;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
@@ -97,13 +97,14 @@ nav ul li {
 .button-3d:hover {
     background-color: #1a454f; /* Verde escuro */
     color: #fff;
-    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    transform: scale(1.15); /* Efeito de aumento ao passar o mouse */
 }
 
 .cursor {
     display: inline-block;
     width: 10px;
-    background-color: #0e2a30; /* Cor do cursor */
+    background-color: #b2ebf2; /* Cor do cursor */
+    margin-left: 5px;
     animation: blink 0.7s step-end infinite;
 }
 
@@ -111,4 +112,10 @@ nav ul li {
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+#support-text {
+    display: inline-block;
+    color: #ffffff; /* Branco */
+    font-size: 2em; /* Tamanho da fonte padrão */
 }
