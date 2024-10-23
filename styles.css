@@ -55,14 +55,14 @@ body {
 
 .header-content h1 {
     color: #fff; /* Branco */
-    font-size: 3.5em; /* Aumenta o tamanho da fonte */
+    font-size: 3.0em; /* Aumenta o tamanho da fonte */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra mais pronunciada */
     margin: 0;
 }
 
 .header-content p {
     color: #ffffff; /* Branco para o parágrafo */
-    font-size: 1.5em; /* Aumenta o tamanho da fonte do parágrafo */
+    font-size: 1.3em; /* Aumenta o tamanho da fonte do parágrafo */
     margin: 10px 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
 }
@@ -81,23 +81,23 @@ nav ul li {
 }
 
 .button-3d {
-    font-family: 'Raleway', sans-serif; /* Nova fonte para os botões */
+    font-family: 'Montserrat', sans-serif; /* Nova fonte para os botões */
     text-decoration: none;
     color: #ffffff; /* Branco para o texto dos botões */
     background-color: #4c9daf; /* Verde claro */
-    padding: 15px 120px; /* Aumenta o padding para tornar os botões maiores e mais largos */
+    padding: 15px 110px; /* Aumenta o padding para tornar os botões maiores e mais largos */
     border-radius: 5px;
     border: 1px solid transparent;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
     display: inline-block;
     text-align: center;
-    font-size: 1.2em; /* Tamanho da fonte */
+    font-size: 1.1em; /* Tamanho da fonte */
 }
 
 .button-3d:hover {
     background-color: #1a454f; /* Verde escuro */
     color: #fff;
-    transform: scale(1.15); /* Efeito de aumento ao passar o mouse */
+    transform: scale(1.10); /* Efeito de aumento ao passar o mouse */
 }
 
 .cursor {
